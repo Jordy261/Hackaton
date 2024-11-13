@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Event
+    </ion-title>
+  </ion-toolbar>
+
+  
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+     <ion-item *ngFor="let item of ListeEvent"> 
+    <ion-card>
+        <img [src]="item.posterUrl" />
+        <ion-card-header>
+          <ion-card-title>{{item.theme_hack}}</ion-card-title>
+          
+        </ion-card-header>
+      </ion-card> 
+       </ion-item> 
+
+</ion-content>
