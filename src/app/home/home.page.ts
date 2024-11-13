@@ -1,6 +1,6 @@
 
 import { NavController } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http';
+//import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavigationExtras } from '@angular/router';
@@ -11,11 +11,19 @@ import { NavigationExtras } from '@angular/router';
 })
 export class HomePage {
 
-  constructor(private navCtrl: NavController) {}
+  constructor(private navCtrl: NavController, private router:Router) {}
 
   // Fonction pour voir la liste des hackathons
   voirHackathons() {
-    this.navCtrl.navigateForward('/hackathons-list');  // Rediriger vers la page des hackathons
+    console.log("ici")
+    /*let navExtras:NavigationExtras=
+    {
+      state:{
+        
+        param1: "j'arrive de page home"
+
+    }}*/
+    this.router.navigate(["/hackaton"],{replaceUrl:true})
   }
 
   
