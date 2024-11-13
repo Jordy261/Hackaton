@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,15 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private navCtrl: NavController) {}
 
+  // Fonction pour voir la liste des hackathons
+  voirHackathons() {
+    this.navCtrl.navigateForward('/hackathons-list');  // Rediriger vers la page des hackathons
+  }
+
+  // Fonction pour s'inscrire
+  inscriptionHackathon() {
+    this.navCtrl.navigateForward('/register');  // Rediriger vers la page d'inscription
+  }
 }
