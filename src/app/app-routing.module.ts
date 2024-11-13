@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'inscription',
+    loadChildren: () => import('./inscription/inscription.module').then( m => m.InscriptionPageModule)
+  },
+  {
+    path: 'liste-atelier',
+    loadChildren: () => import('./liste-atelier/liste-atelier.module').then( m => m.ListeAtelierPageModule)
+  },
 ];
 
 @NgModule({
