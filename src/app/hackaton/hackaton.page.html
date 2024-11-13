@@ -12,27 +12,84 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!-- Ajout d'un padding global -->
   <div class="page-content">
-    <ion-item *ngFor="let item of ListeEvent" lines="none" class="event-item"> 
-      
+    <!-- Boucle pour chaque événement -->
+    <ion-item *ngFor="let item of ListeEvent" lines="none" class="event-item">
       <ion-card class="event-card">
-        
-        <!-- Image de la carte -->
-        <ion-img [src]="item.imageUrl" class="event-image"></ion-img>
-        
+
+        <!-- Image en fonction du thème -->
+        <ion-img src="./assets/icon/OIP.jpg" class="event-image"></ion-img>
+
         <ion-card-header>
-
-        <ion-card-title name="id_hack" class="event-title">{{ item.id}}</ion-card-title>
-          <!-- Titre du thème de l'événement -->
+          <!-- Titre du hackathon avec le thème et la ville -->
           <ion-card-title class="event-title">{{ item.theme_hack }}</ion-card-title>
-
-          <ion-card-title class="event-title">{{ item.ville_hack}}</ion-card-title>
-          <ion-card-title class="event-title">{{ item.date_debut_hack | date: 'dd/MM/yyyy' }}</ion-card-title>
+          <p class="event-location">{{ item.ville_hack }}</p>
+          <ion-button class="custom-button" (click)="voirAtelier(item)">
+            <ion-icon slot="start" name="list-outline"></ion-icon>
+            Hackathon
+          </ion-button>
         </ion-card-header>
-    
-        
-      </ion-card> 
+ 
+        <!-- Contenu de la carte -->
+        <ion-card-content>
+          <p class="event-date">Début : {{ item.date_debut_hack | date: 'dd/MM/yyyy' }}</p>
+          <p class="event-id">ID Hack: {{ item.id }}</p>
+        </ion-card-content>
+      </ion-card>
     </ion-item>
   </div>
 </ion-content>
+
+
+
+<style>
+  .page-content {
+    padding: 16px;
+  }
+
+  .event-item {
+    margin-bottom: 16px;
+  }
+
+  .event-card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+  }
+
+  .event-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .event-image {
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .event-title {
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #333;
+    text-align: center;
+  }
+
+  .event-location {
+    color: #666;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .event-date,
+  .event-id {
+    color: #444;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    text-align: center;
+  }
+
+  ion-card-content {
+    padding: 8px 16px;
+  }
+</style>
