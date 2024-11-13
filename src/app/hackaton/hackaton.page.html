@@ -1,25 +1,38 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <!-- Bouton retour sans texte -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+
     <ion-title>
-      Event
+      Nos Hackatons
     </ion-title>
   </ion-toolbar>
-
-  
-  
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
-
-     <ion-item *ngFor="let item of ListeEvent"> 
-    <ion-card>
-
+  <!-- Ajout d'un padding global -->
+  <div class="page-content">
+    <ion-item *ngFor="let item of ListeEvent" lines="none" class="event-item"> 
+      
+      <ion-card class="event-card">
+        
+        <!-- Image de la carte -->
+        <ion-img [src]="item.imageUrl" class="event-image"></ion-img>
+        
         <ion-card-header>
-          <ion-card-title>{{item.theme_hack}}</ion-card-title>
-          
-        </ion-card-header>
-      </ion-card> 
-       </ion-item> 
 
+        <ion-card-title name="id_hack" class="event-title">{{ item.id}}</ion-card-title>
+          <!-- Titre du thème de l'événement -->
+          <ion-card-title class="event-title">{{ item.theme_hack }}</ion-card-title>
+
+          <ion-card-title class="event-title">{{ item.ville_hack}}</ion-card-title>
+          <ion-card-title class="event-title">{{ item.date_debut_hack | date: 'dd/MM/yyyy' }}</ion-card-title>
+        </ion-card-header>
+    
+        
+      </ion-card> 
+    </ion-item>
+  </div>
 </ion-content>
