@@ -18,6 +18,10 @@ export class HackatonPage {
       this.ListeEvent= result;
    });
   }
+
+  voirAtelier(item:any){
+    this.router.navigate(["/liste-atelier",item],{replaceUrl:true})
+  }
 }
 
  
