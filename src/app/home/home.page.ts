@@ -15,7 +15,7 @@ export class HomePage {
 
   // Fonction pour voir la liste des hackathons
   voirHackathons() {
-    this.navCtrl.navigateForward('/hackathons-list');  // Rediriger vers la page des hackathons
+    this.navCtrl.navigateForward('/hackathon');  // Rediriger vers la page des hackathons
   }
 
 }
