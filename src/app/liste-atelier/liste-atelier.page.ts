@@ -1,4 +1,8 @@
 import { Component  } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-liste-atelier',
@@ -7,8 +11,28 @@ import { Component  } from '@angular/core';
 })
 export class ListeAtelierPage   {
 listeAtelier:any;
-  constructor() { }
+item:any;
+  constructor(private route:ActivatedRoute, private http:HttpClient, private router:Router) {
+
+    this.route.params.subscribe(params => {
+      this.item = params;
+      console.log(this.item)
+      this.http.get("http://localhost:3000/atelierHack/"+this.item.id).subscribe(result => {
+        console.log(result);
+        this.listeAtelier= result;
+      
+      })
+  
 
 
+    })
+
+
+   }
+PageInscription(item:any){
+  console.log(item)
+ 
+    this.router.navigate(["/inscription",item],{replaceUrl:true})
+}
 
 }
