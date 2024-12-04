@@ -13,7 +13,7 @@
 
 <ion-content [fullscreen]="true">
   <div class="page-content">
-    <ion-item *ngFor="let item of listeAtelier" lines="none" class="event-item">
+    <ion-item *ngFor="let item of listeAtelier" lines="none" class="event-item" (click)="PageInscription(item)">
       <ion-card class="event-card">
 
   
@@ -28,7 +28,7 @@
         <ion-card-content>
           <p class="event-date">Début : {{ item.date_event | date: 'dd/MM/yyyy' }}</p>
           <p class="event-id">{{ item.duree_event }} heures</p>
-          <ion-button (click)="PageInscription(item)">S'inscrire</ion-button>
+         
         </ion-card-content>
       </ion-card>
     </ion-item>

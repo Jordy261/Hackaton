@@ -11,7 +11,7 @@
 
 <ion-content class="ion-padding">
   <div class="welcome-container">
-    <img src="./assets/icon/hackatonImg.jpg" alt="Welcome Image" class="welcome-image">
+    <img src="./assets/icon/hackatonImg.jpg" alt="Welcome Image" class="welcome-image" (click)="voirHackathons()">
     <h2 class="welcome-text">Bienvenue à l'application Hackathon</h2>
     <p class="welcome-description">
       Rejoignez-nous pour découvrir et participer aux meilleurs hackathons. Inscrivez-vous dès maintenant pour ne rien manquer !
@@ -19,10 +19,7 @@
   </div>
   <div class="button-container">
     
-    <ion-button class="custom-button" (click)="voirHackathons()">
-      <ion-icon slot="start" name="list-outline"></ion-icon>
-      Hackathon
-    </ion-button>
+    
   </div>
 </ion-content>
 
