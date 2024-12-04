@@ -26,7 +26,7 @@
           <p class="event-location">{{ item.ville_hack }}</p>
           <ion-button class="custom-button" (click)="voirAtelier(item)">
             <ion-icon slot="start" name="list-outline"></ion-icon>
-            Hackathon
+            Les ateliers
           </ion-button>
         </ion-card-header>
  
@@ -42,53 +42,74 @@
 
 
 <style>
-  .page-content {
-    padding: 16px;
-  }
+ .page-content {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre les cartes au milieu */
+}
 
-  .event-item {
-    margin-bottom: 16px;
-  }
+.custom-button {
+  --background: #6c04ce;
+  --background-activated: #005bb5;
+  --background-focused: #005bb5;
+  --background-hover: #005bb5;
+  --color: #fff;
+  --border-radius: 12px;
+  font-size: 14px;
+  font-weight: 450;
+  padding: 8px 18px;
+  transition: transform 0.2s ease-in-out;
+}
+.event-item {
+  margin-bottom: 12px;
+  width: 100%; /* Prend la largeur maximale du conteneur */
+  max-width: 400px; /* Largeur maximale de chaque carte */
+}
 
-  .event-card {
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease;
-  }
+.event-card {
+  width: 100%; /* Occupe toute la largeur du conteneur event-item */
+  max-width: 100%; /* S'assure que la carte ne dépasse pas sa largeur */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
 
-  .event-card:hover {
-    transform: translateY(-4px);
-  }
+.event-card:hover {
+  transform: translateY(-2px);
+}
 
-  .event-image {
-    height: 180px;
-    width: 100%;
-    object-fit: cover;
-  }
+.event-image {
+  height: 120px; /* Taille réduite pour mobile */
+  width: 100%;
+  object-fit: cover;
+}
 
-  .event-title {
-    font-weight: bold;
-    font-size: 1.4rem;
-    color: #333;
-    text-align: center;
-  }
+.event-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+  margin-top: 4px;
+}
 
-  .event-location {
-    color: #666;
-    text-align: center;
-    font-size: 1rem;
-  }
+.event-location {
+  color: #666;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
 
-  .event-date,
-  .event-id {
-    color: #444;
-    font-size: 0.9rem;
-    margin-top: 8px;
-    text-align: center;
-  }
+.event-date {
+  color: #444;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  text-align: center;
+}
 
-  ion-card-content {
-    padding: 8px 16px;
-  }
+ion-card-content {
+  padding: 6px 12px;
+}
+
 </style>

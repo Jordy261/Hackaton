@@ -18,7 +18,8 @@ const routes: Routes = [
   {
     path: 'liste-atelier',
     loadChildren: () => import('./liste-atelier/liste-atelier.module').then( m => m.ListeAtelierPageModule)
-  },  {
+  },
+  {
     path: 'hackaton',
     loadChildren: () => import('./hackaton/hackaton.module').then( m => m.HackatonPageModule)
   },
