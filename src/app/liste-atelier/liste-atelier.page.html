@@ -2,89 +2,105 @@
   <ion-toolbar>
     <!-- Bouton retour sans texte -->
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/" icon="arrow-back-outline"></ion-back-button>
+      <ion-back-button defaultHref="/" icon="chevron-back-outline"></ion-back-button>
     </ion-buttons>
 
     <ion-title>
-      Nos Hackatons
+      Liste des Ateliers
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div class="page-content">
-    <ion-item *ngFor="let item of listeAtelier" lines="none" class="event-item">
-      <ion-card class="event-card">
+    <h2 class="page-title">Explorez nos ateliers</h2>
 
-  
-       
+    <ion-list>
+      <ion-item *ngFor="let item of listeAtelier" lines="none" class="atelier-item" (click)="PageInscription(item)">
+        <ion-card class="atelier-card">
+          <img [src]="item.image || 'assets/icon/eventatelier.png'" alt="Atelier image" class="atelier-image" />
 
-        <ion-card-header>
-          <ion-card-title class="event-title">{{ item.nom_salle }}</ion-card-title>
-            <ion-icon slot="start" name="list-outline"></ion-icon>
-            Hackathon
-        </ion-card-header>
- 
-        <ion-card-content>
-          <p class="event-date">Début : {{ item.date_event | date: 'dd/MM/yyyy' }}</p>
-          <p class="event-id">{{ item.duree_event }} heures</p>
-          <ion-button (click)="PageInscription(item)">S'inscrire</ion-button>
-        </ion-card-content>
-      </ion-card>
-    </ion-item>
+          <ion-card-header>
+            <ion-card-title class="atelier-title">{{ item.nom_salle }}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <p class="atelier-type"><ion-icon name="school-outline"></ion-icon> Atelier</p>
+            <p class="atelier-date"><ion-icon name="calendar-outline"></ion-icon> Début : {{ item.date_event | date: 'dd/MM/yyyy' }}</p>
+            <p class="atelier-duration"><ion-icon name="time-outline"></ion-icon> Durée : {{ item.duree_event }} heures</p>
+            <p class="atelier-participants"><ion-icon name="people-outline"></ion-icon> Participants restants : {{ item.nb_participants }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>
-
-
 
 <style>
   .page-content {
     padding: 16px;
+    background-color: #f4f5f8;
   }
 
-  .event-item {
+  .page-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .atelier-item {
     margin-bottom: 16px;
   }
 
-  .event-card {
+  .atelier-card {
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    background-color: #fff;
   }
 
-  .event-card:hover {
+  .atelier-card:hover {
     transform: translateY(-4px);
   }
 
-  .event-image {
+  .atelier-image {
     height: 180px;
     width: 100%;
     object-fit: cover;
   }
 
-  .event-title {
+  .atelier-title {
     font-weight: bold;
     font-size: 1.4rem;
-    color: #333;
+    color: #222;
     text-align: center;
   }
 
-  .event-location {
-    color: #666;
-    text-align: center;
+  .atelier-type,
+  .atelier-date,
+  .atelier-duration,
+  .atelier-participants {
+    color: #555;
     font-size: 1rem;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
 
-  .event-date,
-  .event-id {
-    color: #444;
-    font-size: 0.9rem;
-    margin-top: 8px;
-    text-align: center;
+  .atelier-type ion-icon,
+  .atelier-date ion-icon,
+  .atelier-duration ion-icon,
+  .atelier-participants ion-icon {
+    color: #007bff;
+    font-size: 1.2rem;
   }
 
   ion-card-content {
-    padding: 8px 16px;
+    padding: 12px 16px;
+    text-align: left;
   }
 </style>
