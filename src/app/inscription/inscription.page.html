@@ -1,37 +1,68 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Inscription aux ateliers</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title class="text-center">🎉 Inscription à l'atelier</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Inscription aux ateliers</ion-title>
+    <ion-toolbar color="primary">
+      <ion-title size="large" class="text-center">Inscription</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-list>
-    <form (ngSubmit)="onSubmit()" #form="ngForm">
-      <ion-item>
-        <ion-label position="floating">Nom</ion-label>
-        <ion-input type="text" name="nom" [(ngModel)]="user.nom" required></ion-input>
-      </ion-item>
-    
-      <ion-item>
-        <ion-label position="floating">Prénom</ion-label>
-        <ion-input type="text" name="prenom" [(ngModel)]="user.prenom" required></ion-input>
-      </ion-item>
-    
-      <ion-item>
-        <ion-label position="floating">Email</ion-label>
-        <ion-input type="email" name="email" [(ngModel)]="user.email" required></ion-input>
-      </ion-item>
-    
-      <ion-button expand="full" type="submit" >Valider mon inscription</ion-button>
-    </form>
-    
+  <div class="hero-section">
+    <ion-img src="assets/icon/OIP.jpg" alt="Hackathon banner"></ion-img>
+    <p class="hero-text">Rejoignez-nous pour un événement de créativité et d'innovation!</p>
+  </div>
 
+  <ion-card class="form-card">
+    <ion-card-header>
+      <ion-card-title>Inscription aux Ateliers</ion-card-title>
+    </ion-card-header>
 
-  </ion-list>
+    <ion-card-content>
+      <form (ngSubmit)="onSubmit()" #form="ngForm">
+        <ion-item class="input-item">
+          <ion-label position="floating">Nom</ion-label>
+          <ion-input type="text" name="nom" [(ngModel)]="user.nom" required></ion-input>
+        </ion-item>
+      
+        <ion-item class="input-item">
+          <ion-label position="floating">Prénom</ion-label>
+          <ion-input type="text" name="prenom" [(ngModel)]="user.prenom" required></ion-input>
+        </ion-item>
+      
+        <ion-item class="input-item">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" name="email" [(ngModel)]="user.email" required></ion-input>
+        </ion-item>
+      
+        <ion-button expand="block" color="primary" type="submit">
+          🚀 Valider mon inscription
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+
+<style>
+  .text-center {
+    text-align: center;
+  }
+  .hero-section {
+    text-align: center;
+    margin: 16px 0;
+  }
+  .hero-section .hero-text {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 8px;
+  }
+  .form-card {
+    margin: 16px;
+  }
+  .input-item {
+    margin-bottom: 16px;
+  }
+</style>
