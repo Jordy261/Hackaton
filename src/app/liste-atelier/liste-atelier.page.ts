@@ -1,15 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component  } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-liste-atelier',
   templateUrl: './liste-atelier.page.html',
   styleUrls: ['./liste-atelier.page.scss'],
 })
-export class ListeAtelierPage implements OnInit {
+export class ListeAtelierPage   {
+listeAtelier:any;
+item:any;
+  constructor(private route:ActivatedRoute, private http:HttpClient, private router:Router) {
 
-  constructor() { }
+    this.route.params.subscribe(params => {
+      this.item = params;
+      console.log(this.item)
+      this.http.get("http://localhost:3000/atelierHack/"+this.item.id).subscribe(result => {
+        console.log(result);
+        this.listeAtelier= result;
+      
+      })
+  
 
-  ngOnInit() {
-  }
+
+    })
+
+
+   }
+PageInscription(item:any){
+  console.log(item)
+ 
+    this.router.navigate(["/inscription",item],{replaceUrl:true})
+}
 
 }
