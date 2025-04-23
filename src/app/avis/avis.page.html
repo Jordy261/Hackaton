@@ -1,54 +1,43 @@
 <ion-header [translucent]="true">
-  
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/hackaton" icon="arrow-back-outline"></ion-back-button>
     </ion-buttons>
-    <ion-title class="text-center">🎉 Inscription à l'atelier</ion-title>
+    <ion-title class="text-center">📝 Commentaire sur l'atelier</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar color="primary">
-      <ion-title size="large" class="text-center">Inscription</ion-title>
+      <ion-title size="large" class="text-center">Laissez un commentaire</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div class="hero-section">
     <ion-img src="assets/icon/OIP.jpg" alt="Hackathon banner"></ion-img>
-    <p class="hero-text">Rejoignez-nous pour un événement de créativité et d'innovation!</p>
+    <p class="hero-text">Votre retour est précieux pour améliorer nos ateliers !</p>
   </div>
 
   <ion-card class="form-card">
     <ion-card-header>
-      <ion-card-title>Inscription aux Ateliers</ion-card-title>
+      <ion-card-title>Partager votre commentaire</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
       <form (ngSubmit)="onSubmit()" #form="ngForm">
         <ion-item class="input-item">
-          <ion-label position="floating">Nom</ion-label>
-          <ion-input type="text" name="nom" [(ngModel)]="user.nom" required></ion-input>
-        </ion-item>
-      
-        <ion-item class="input-item">
-          <ion-label position="floating">Prénom</ion-label>
-          <ion-input type="text" name="prenom" [(ngModel)]="user.prenom" required></ion-input>
-        </ion-item>
-      
-        <ion-item class="input-item">
           <ion-label position="floating">Email</ion-label>
-          <ion-input type="email" name="email" [(ngModel)]="user.email" required></ion-input>
+          <ion-input type="email" name="email_utilForm" [(ngModel)]="user2.email_utilForm" required></ion-input>
         </ion-item>
-
+      
         <ion-item class="input-item">
-          <ion-label position="floating">Montant</ion-label>
-          <ion-input type="text" name="montant" [(ngModel)]="user.montant"></ion-input>
+          <ion-label position="floating">Votre commentaire</ion-label>
+          <ion-textarea name="commentaire_utilForm" [(ngModel)]="user2.commentaire_utilForm" required rows="6"></ion-textarea>
         </ion-item>
       
         <ion-button expand="block" color="primary" type="submit">
-          🚀 Valider mon inscription
+          📝 Envoyer mon commentaire
         </ion-button>
       </form>
     </ion-card-content>

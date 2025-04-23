@@ -22,7 +22,15 @@ const routes: Routes = [
   {
     path: 'hackaton',
     loadChildren: () => import('./hackaton/hackaton.module').then( m => m.HackatonPageModule)
+  },  {
+    path: 'avis',
+    loadChildren: () => import('./avis/avis.module').then( m => m.AvisPageModule)
   },
+  {
+    path: 'liste-commentaire',
+    loadChildren: () => import('./liste-commentaire/liste-commentaire.module').then( m => m.ListeCommentairePageModule)
+  },
+
 
 ];
 
