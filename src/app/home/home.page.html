@@ -1,47 +1,39 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title class="app-title">
-      Hackathon App
-    </ion-title>
-  </ion-toolbar>
-
+<ion-menu side="start" menuId="first" contentId="main-content">
+ 
   
+    <!-- Liens de navigation vers d'autres pages -->
+     
+    <ion-list>  
+      <ion-item button (click)="favoris()">
+        <ion-label>Favoris</ion-label>
+      </ion-item>
+    </ion-list>
   
-</ion-header>
-
-<ion-content class="ion-padding">
-  <div class="welcome-container">
-    <img src="./assets/icon/hackatonImg.jpg" alt="Welcome Image" class="welcome-image" (click)="voirHackathons()">
-    <h2 class="welcome-text">Bienvenue à l'application Hackathon</h2>
-    <p class="welcome-description">
-      Rejoignez-nous pour découvrir et participer aux meilleurs hackathons. Inscrivez-vous dès maintenant pour ne rien manquer !
-    </p>
-  </div>
-  <div class="button-container">
-    
-    
-  </div>
-</ion-content>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</ion-menu>
+<!-- Contenu principal -->
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Hackat'Event</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <div class="welcome-container">
+      <img src="./assets/icon/hackatonImg.jpg" alt="Welcome Image" class="welcome-image" (click)="voirHackathons()">
+      <h2 class="welcome-text">Bienvenue à l'application Hackathon</h2>
+      <p class="welcome-description">
+        Rejoignez-nous pour découvrir et participer aux meilleurs hackathons. Inscrivez-vous dès maintenant pour ne rien manquer !
+      </p>
+    </div>
+    <div class="button-container">
+      
+      
+    </div>
+  </ion-content>
+</div>
 
 <style>
 ion-content {
@@ -61,6 +53,7 @@ ion-content {
   text-align: center;
   width: 100%;
 }
+
 
 .welcome-container {
   text-align: center;

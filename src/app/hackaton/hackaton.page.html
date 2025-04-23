@@ -14,11 +14,11 @@
 <ion-content [fullscreen]="true">
   <div class="page-content">
     <!-- Boucle pour chaque événement -->
-    <ion-item *ngFor="let item of ListeEvent" lines="none" class="event-item"  (click)="voirAtelier(item)" >
+    <ion-item *ngFor="let item of ListeEvent" lines="none" class="event-item"  >
       <ion-card class="event-card">
 
         <!-- Image en fonction du thème -->
-        <ion-img src="./assets/icon/OIP.jpg" class="event-image"></ion-img>
+        <ion-img src="./assets/icon/OIP.jpg" class="event-image" (click)="voirAtelier(item)" ></ion-img>
 
         <ion-card-header>
           <!-- Titre du hackathon avec le thème et la ville -->
@@ -26,12 +26,14 @@
           <p class="event-location">{{ item.ville_hack }}</p>
          
           
+          
         </ion-card-header>
  
         <!-- Contenu de la carte -->
-        <ion-card-content>
+        <ion-card-content (click)="voirAtelier(item)" >
           <p class="event-date">Début : {{ item.date_debut_hack | date: 'dd/MM/yyyy' }}</p>
         </ion-card-content>
+        
       </ion-card>
     </ion-item>
   </div>

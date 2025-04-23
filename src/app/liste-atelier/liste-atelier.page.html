@@ -16,7 +16,7 @@
     <h2 class="page-title">Explorez nos ateliers</h2>
 
     <ion-list>
-      <ion-item *ngFor="let item of listeAtelier" lines="none" class="atelier-item" (click)="PageInscription(item)">
+      <ion-item *ngFor="let item of listeAtelier" lines="none" class="atelier-item">
         <ion-card class="atelier-card">
           <img [src]="item.image || 'assets/icon/eventatelier.png'" alt="Atelier image" class="atelier-image" />
 
@@ -29,6 +29,9 @@
             <p class="atelier-date"><ion-icon name="calendar-outline"></ion-icon> Début : {{ item.date_event | date: 'dd/MM/yyyy' }}</p>
             <p class="atelier-duration"><ion-icon name="time-outline"></ion-icon> Durée : {{ item.duree_event }} heures</p>
             <p class="atelier-participants"><ion-icon name="people-outline"></ion-icon> Participants restants : {{ item.nb_participants }}</p>
+            <ion-button *ngIf="item.isFavoris==false" (click)="addstorage(item)">Ajouter au favoris</ion-button>
+            <ion-button *ngIf="item.isFavoris==true" (click)="delstorage(item)">supprimer des favoris</ion-button>
+
           </ion-card-content>
         </ion-card>
       </ion-item>

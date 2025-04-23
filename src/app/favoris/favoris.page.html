@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Favoris</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="page-content">
+    <h2 class="page-title">Vos favoris</h2>
+
+    <ion-list>
+      <ion-item *ngFor="let item of favorisAtelier" lines="none" class="atelier-item">
+        <ion-card class="atelier-card">
+          <img [src]="item.image || 'assets/icon/eventatelier.png'" alt="Atelier image" class="atelier-image" />
+
+          <ion-card-header>
+            <ion-card-title class="atelier-title">{{ item.nom_salle }}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <p class="atelier-type"><ion-icon name="school-outline"></ion-icon> Atelier</p>
+            <p class="atelier-date"><ion-icon name="calendar-outline"></ion-icon> Début : {{ item.date_event | date: 'dd/MM/yyyy' }}</p>
+            <p class="atelier-duration"><ion-icon name="time-outline"></ion-icon> Durée : {{ item.duree_event }} heures</p>
+            <p class="atelier-participants"><ion-icon name="people-outline"></ion-icon> Participants restants : {{ item.nb_participants }}</p>
+           
+
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+

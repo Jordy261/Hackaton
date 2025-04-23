@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'hackaton',
     loadChildren: () => import('./hackaton/hackaton.module').then( m => m.HackatonPageModule)
   },
+  {
+    path: 'favoris',
+    loadChildren: () => import('./favoris/favoris.module').then( m => m.FavorisPageModule)
+  },
 
 ];
 
