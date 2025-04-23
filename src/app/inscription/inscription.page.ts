@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./inscription.page.scss'],
 })
 export class InscriptionPage {
-  user: any = { nom: '', prenom: '', email: '' }; // Modèle pour capturer les données du formulaire
+  user: any = { nom: '', prenom: '', email: '', montant:'' }; // Modèle pour capturer les données du formulaire
   atelier: any; // Contient les données passées via la route
 
   constructor(
@@ -30,15 +30,16 @@ export class InscriptionPage {
       console.log('Utilisateur créé:', result);
   
       //if (this.atelier && this.atelier.id) {
-        const lesId = {
+        const participation = {
           id_utilisateur: result.id,
-          id_event: this.atelier.id_event
+          id_event: this.atelier.id,
+          montantUtil: this.user.montant
         };
 
-        console.log(lesId)
+        console.log(participation)
   
         // Enregistrement de la participation à l'événement
-        this.http.post('http://localhost:3000/participer', lesId).subscribe((res: any) => {
+        this.http.post('http://localhost:3000/participer', participation).subscribe((res: any) => {
           console.log('Participation enregistrée avec succès:', res);
           }, (err) => {
           console.error('Erreur lors de l\'enregistrement de la participation :', err);

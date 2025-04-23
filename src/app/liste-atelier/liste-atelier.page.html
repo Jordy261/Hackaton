@@ -17,6 +17,7 @@
 
     <ion-list>
       <ion-item *ngFor="let item of listeAtelier" lines="none" class="atelier-item">
+      <ion-item *ngFor="let item of listeAtelier" lines="none" class="atelier-item" >
         <ion-card class="atelier-card">
           <img [src]="item.image || 'assets/icon/eventatelier.png'" alt="Atelier image" class="atelier-image" />
 
@@ -32,6 +33,10 @@
             <ion-button *ngIf="item.isFavoris==false" (click)="addstorage(item)">Ajouter au favoris</ion-button>
             <ion-button *ngIf="item.isFavoris==true" (click)="delstorage(item)">supprimer des favoris</ion-button>
 
+            <p class="atelier-montant"><ion-icon name="cash-outline"></ion-icon> Montant : {{ item.montantTotal }} $</p>
+            <ion-button (click)="PageInscription(item)">S'inscrire</ion-button>
+            <ion-button (click)="PageCommentaire(item)">Laisser un avis sur cet atelier</ion-button> 
+            <ion-button (click)="ListeCommentaire(item)">Voir les commentaires de cet atelier</ion-button>
           </ion-card-content>
         </ion-card>
       </ion-item>
@@ -40,6 +45,20 @@
 </ion-content>
 
 <style>
+  .atelier-montant {
+  color: #555;
+  font-size: 1rem;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.atelier-montant ion-icon {
+  color: #007bff;
+  font-size: 1.2rem;
+}
+
   .page-content {
     padding: 16px;
     background-color: #f4f5f8;

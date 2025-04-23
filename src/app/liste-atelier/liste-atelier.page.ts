@@ -1,4 +1,4 @@
-import { Component  } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -24,7 +24,7 @@ export class ListeAtelierPage   {
       this.item = params;
       
       console.log(this.item)
-      this.http.get("http://localhost:3000/atelierHack/"+this.item.id).subscribe(result => {
+      this.http.get("http://localhost:3000/atelierHack/" + this.item.id).subscribe(result => {
         console.log(result);
         env.listeAtelier= result;
         this.storage.create().then(error=>{
@@ -95,5 +95,4 @@ export class ListeAtelierPage   {
  
     this.router.navigate(["/inscription",item],{replaceUrl:true})
 }
-
 }

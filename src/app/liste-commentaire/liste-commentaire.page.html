@@ -1,0 +1,90 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- Bouton retour sans texte -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/hackaton" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      Commentaires de cet atelier
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="page-content">
+    <h2 class="page-title">Explorez les commentaires</h2>
+
+    <ion-list>
+      <ion-item *ngFor="let item of listeCommentaire" lines="none" class="atelier-item">
+        <ion-card class="atelier-card">
+          <ion-card-content>
+            <div class="comment-header">
+              <ion-icon name="person-circle-outline" class="comment-icon"></ion-icon>
+              <p class="comment-email">{{ item.email_utilisateur }}</p>
+            </div>
+            <div class="comment-body">
+              <ion-icon name="chatbox-ellipses-outline" class="comment-icon"></ion-icon>
+              <p class="comment-text">{{ item.avis_utilisateur }}</p>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+
+<style>
+  .page-content {
+    padding: 16px;
+    background-color: #f4f5f8;
+  }
+
+  .page-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .atelier-item {
+    margin-bottom: 16px;
+  }
+
+  .atelier-card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: #fff;
+    padding: 12px;
+  }
+
+  .atelier-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .comment-header, .comment-body {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .comment-icon {
+    color: #007bff;
+    font-size: 1.5rem;
+  }
+
+  .comment-email {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #222;
+  }
+
+  .comment-text {
+    font-size: 1rem;
+    color: #555;
+  }
+</style>
