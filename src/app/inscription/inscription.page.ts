@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { LocalNotifications } from '@awesome-cordova-plugins/local-notifications/ngx';
 
 @Component({
   selector: 'app-inscription',
